@@ -1,7 +1,26 @@
 (() => {
-    // target the ul
+    // target one thing
     const mainMenu = document.querySelector('#main');
-    const secondaryMenu = document.querySelector('#secondary');
+    const secondaryMenu = document.getElementById('secondary');
+
+    // target many things
+    const listItems = document.getElementsByTagName('li');
+
+    // Use **destructuring** to convert it to an Array,
+    // so we can use the array methods that we know and love
+    const listArray = [...listItems];
+
+    // same thing on one line
+    // const listArray = [...document.getElementsByTagName('li')]
+
+    const myArr = ['blah', 'blorp', 'bloopy'];
+    
+    console.dir(listArray.map(li => {
+        li.innerText = 'blarrrrr';
+        return li;
+    }));
+    
+    console.dir(myArr.map(el => el.toUpperCase()));
 
     // give it a blue class
     // mainMenu.className = 'blue';
