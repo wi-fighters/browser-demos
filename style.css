@@ -3,3 +3,15 @@ noscript p {
     background-color: gold;
     font-weight: bold;
 }
+
+.blue {
+    color: blue;
+}
+
+.purple {
+    color: purple;
+}
+
+.pink-background {
+    background-color: pink;
+}

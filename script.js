@@ -1,13 +1,6 @@
 (() => {
-    const pizza = {topping: 'hawaiian'};
-
-    const userTopping = prompt('Which topping would you like?');
-    pizza.topping = userTopping;
-    console.log(pizza);
-
-    const userInput = confirm('Everyboooody');
-    console.log(userInput);
-
-    // window.alert("Backstreet's back");
-    alert('Alright!');
+    // target the ul
+    const mainMenu = document.querySelector('ul');
+    // give it a blue class
+    mainMenu.className = 'blue';
 })();
