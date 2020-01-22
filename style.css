@@ -4,6 +4,11 @@ noscript p {
     font-weight: bold;
 }
 
+.bigger {
+    font-weight: bold;
+    font-size: 2em;
+}
+
 .blue {
     color: blue;
 }
