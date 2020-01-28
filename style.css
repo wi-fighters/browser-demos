@@ -4,7 +4,11 @@ noscript p {
     font-weight: bold;
 }
 
-#square {
+button {
+    -webkit-appearance: none !important;
+}
+
+.square {
     margin-top: 1em;
     height: 250px;
     width: 250px;

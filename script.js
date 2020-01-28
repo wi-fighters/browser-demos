@@ -1,11 +1,14 @@
 (() => {
     // 1. identify which element will emit the event (what are we detecting?)
-    const button = document.querySelector('#button');
+    const buttons = [...document.querySelectorAll('[role=button]')];
 
     // 2. define the handler function (what code should run when the event happens?)
-    const setLoadState = () => {
-        // target the thing we want to change (div)
-        const square = document.querySelector('#square');
+    const setLoadState = function() {
+
+        // target the thing we want to change (the same div that got clicked)
+        const square = this;
+        console.log('ES5 function expression');
+        console.log(this);
 
         const squareClasses = [...square.classList];
         console.log('includes success?',  squareClasses.includes('success'));
@@ -27,5 +30,7 @@
     };
 
     // 3. attach the handler to the element
-    button.addEventListener('click', setLoadState, false);
+    buttons.forEach(button => {
+        button.addEventListener('click', setLoadState, false);
+    });
 })();
