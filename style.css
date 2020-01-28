@@ -4,19 +4,16 @@ noscript p {
     font-weight: bold;
 }
 
-.bigger {
-    font-weight: bold;
-    font-size: 2em;
+#square {
+    margin-top: 1em;
+    height: 250px;
+    width: 250px;
 }
 
-.blue {
-    color: blue;
+.success {
+    background-color: green;
 }
 
-.purple {
-    color: purple;
-}
-
-.pink-background {
-    background-color: pink;
+.error {
+    background-color: red;
 }

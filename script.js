@@ -1,56 +1,31 @@
 (() => {
-    // target one thing
-    const mainMenu = document.querySelector('#main');
-    const secondaryMenu = document.getElementById('secondary');
+    // 1. identify which element will emit the event (what are we detecting?)
+    const button = document.querySelector('#button');
 
-    // target many things
-    const listItems = document.getElementsByTagName('li'); // we get an HTMLCollection
-    console.log('What kind of thing do we get from getElementsByTagName...?');
-    console.dir(listItems);
-    
-    const secondItems = document.getElementsByClassName('second'); // we get an HTMLCollection
-    console.log('What kind of thing do we get from getElementsByClassName...?');
-    console.dir(secondItems);
-    
-    const mainListItems = document.querySelectorAll('#main li');
-    console.log('What kind of thing do we get from querySelectorAll...?');
-    console.dir(mainListItems); // we get a NodeList
+    // 2. define the handler function (what code should run when the event happens?)
+    const setLoadState = () => {
+        // target the thing we want to change (div)
+        const square = document.querySelector('#square');
 
-    // Use **destructuring** to convert "Array-like things" to an Array,
-    // so we can use the array methods that we know and love
-    const listArray = [...listItems];
-    const mainListItemsArray = [...mainListItems];
+        const squareClasses = [...square.classList];
+        console.log('includes success?',  squareClasses.includes('success'));
 
-    // same thing on one line
-    // const listArray = [...document.getElementsByTagName('li')];
-    // const mainListItemsArray = [...document.querySelectorAll('#main li')];
+        // check which class it has and replace it with the other one
+        // (for this example, assume it just has one class)
 
-    const myArr = ['blah', 'blorp', 'bloopy'];
-    
-    console.dir(listArray.map(li => {
-        li.innerText = 'blarrrrr';
-        return li;
-    }));
+        // console.log('before:', square.className);
 
-    mainListItemsArray.forEach(li => {
-        li.classList.add('bigger');
-    });
-    
-    console.dir(myArr.map(el => el.toUpperCase()));
+        if (squareClasses.includes('success')) {
+            square.classList.replace('success', 'error');
+        } else {
+            square.classList.replace('error', 'success');
+        }
 
-    // give it a blue class
-    // mainMenu.className = 'blue';
-    const styleHeaderMenu = menu => {
-        menu.classList.remove('purple');
-        menu.classList.add('blue', 'pink-background');
+        // console.log('after:', square.className);
+        
+        // TODO: consider using the toggle method instead?
     };
 
-    const styleDrawerMenu = menu => {
-        menu.classList.add('purple');
-        menu.classList.remove('blue');
-        menu.classList.remove('pink-background');
-    };
-
-    styleHeaderMenu(secondaryMenu);
-    styleDrawerMenu(mainMenu);
+    // 3. attach the handler to the element
+    button.addEventListener('click', setLoadState, false);
 })();
